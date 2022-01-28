@@ -72,7 +72,15 @@ async function main() {
    //     console.log(" value = " , data);
   //  })
    const dataValue2 = await session.readVariableValue("ns=4;s=HMI_Power.PS_ABS_wState");
-   console.log(" value = " , dataValue2);
+    var localValue=0;
+   setInterval(() => {
+      //  if(localValue!=dataValue2.value.value){
+            localValue=dataValue2.value.value;
+            console.log(" value = " , dataValue2.value.value);
+       // }
+      
+   }, 1000);
+   
        // console.log("references of RootFolder :",browseResult.references); work
         /*for (const reference of browseResult.references) {
             console.log("   -> ", reference.browseName.toString());
